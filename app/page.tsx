@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { Job } from "@/types";
+import { JobCard } from "./JobCard";
 
 const jobType: Job["type"][] = [
   "resize-image",
@@ -38,11 +39,11 @@ export default function Home() {
   return (
     <div
       className="flex flex-col flex-1 items-center justify-center
-  bg-zinc-50 font-sans dark:bg-black"
+      bg-zinc-50 font-sans dark:bg-black"
     >
       <main
         className="flex flex-col flex-1 w-full max-w-7xl py-16
-  px-16 bg-white dark:bg-black gap-6"
+        px-16 bg-white dark:bg-black gap-6"
       >
         <div className="flex gap-2">
           <select
@@ -66,7 +67,7 @@ export default function Home() {
 
         <div
           className="flex items-start justify-between gap-4 h-full
-"
+          "
         >
           {columnList.map((column) => {
             const jobsInColumn = Array.from(jobs.values()).filter(
@@ -76,11 +77,11 @@ export default function Home() {
               <div
                 key={column}
                 className="bg-gray-800 w-full rounded-md h-full p-6
-  min-h-100"
+                min-h-100"
               >
                 <h2
                   className="uppercase font-bold border-b pb-2
-  border-black mb-3"
+                  border-black mb-3"
                 >
                   {column}
                 </h2>
@@ -94,15 +95,6 @@ export default function Home() {
           })}
         </div>
       </main>
-    </div>
-  );
-}
-
-export function JobCard({ job }: { job: Job }) {
-  return (
-    <div className="rounded-md bg-gray-900 p-4 mb-4 text-sm">
-      <div className="font-mono opacity-60">{job.id.slice(0, 8)}</div>
-      <div>{job.type}</div>
     </div>
   );
 }
